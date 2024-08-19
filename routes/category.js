@@ -34,11 +34,9 @@ router.get("/api/category/:idOrName", async (req, res) => {
 
     let searchCriteria = {};
 
-    // Check if the query is a valid ObjectId
     if (ObjectId.isValid(query)) {
       searchCriteria._id = query;
     } else {
-      // Otherwise, assume the query is a name
       searchCriteria.name = new RegExp("^" + query + "$", "i");
     }
 
